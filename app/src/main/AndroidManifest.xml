@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.david.lmicube">
 
-    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -18,13 +20,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".OpenGLES20Activity"
-            android:parentActivityName=".MainActivity">
-
-        </activity>
+        <activity
+            android:name=".OpenGLES20Activity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".EmptyActivity" />
+        <activity android:name=".ToCubeActivity"></activity>
     </application>
-
-
 
 </manifest>

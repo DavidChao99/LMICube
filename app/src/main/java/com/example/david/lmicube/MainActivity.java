@@ -17,10 +17,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    /** Called when User presses the Cube Button    */
-    public void sendToCube(View view) {
-        //Intent going to OpenGLES20Activity
-        Intent intent = new Intent(this, OpenGLES20Activity.class);
-        startActivity(intent);
+    public void toCubeActivity(View v){
+        Intent i = new Intent(this, ToCubeActivity.class);
+        startActivity(i);
+    }
+
+    public void toEmptyActivity(View v){
+        Intent i = new Intent(this, EmptyActivity.class);
+        startActivity(i);
     }
 }
