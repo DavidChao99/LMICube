@@ -133,6 +133,10 @@ class MyGLSurfaceView extends GLSurfaceView {
                         else if (mPreviousY < .7443*screenHeight && mPreviousY > .5553*screenHeight) {
                             mCube.Turn(7);
                         }
+                        // If on Middle Row do S
+                        else if (mPreviousY < .5553*screenHeight && mPreviousY > .3770*screenHeight) {
+                            mCube.Turn(17);
+                        }
                     }
                     //If on Right Face
                     else if (mPreviousX > .5*screenWidth) {
@@ -143,6 +147,10 @@ class MyGLSurfaceView extends GLSurfaceView {
                         // If on Bottom Row do F
                         else if (mPreviousY < .9366*screenHeight && mPreviousY > .7839*screenHeight) {
                             mCube.Turn(7);
+                        }
+                        // If on Middle Row do S
+                        else if (mPreviousY < .7839*screenHeight && mPreviousY > .5179*screenHeight) {
+                            mCube.Turn(17);
                         }
                     }
                 }
@@ -159,6 +167,10 @@ class MyGLSurfaceView extends GLSurfaceView {
                         else if (mPreviousY < .9366*screenHeight && mPreviousY > .7839*screenHeight) {
                             mCube.Turn(8);
                         }
+                        // If on Middle Row do S'
+                        else if (mPreviousY < .7839*screenHeight && mPreviousY > .5179*screenHeight) {
+                            mCube.Turn(18);
+                        }
                     }
                     //If on Right Face
                     else if (mPreviousX > .5*screenWidth) {
@@ -170,10 +182,12 @@ class MyGLSurfaceView extends GLSurfaceView {
                         else if (mPreviousY < .7443*screenHeight && mPreviousY > .5553*screenHeight) {
                             mCube.Turn(8);
                         }
+                        // If on Middle Row do S'
+                        else if (mPreviousY < .5553*screenHeight && mPreviousY > .3770*screenHeight) {
+                            mCube.Turn(18);
+                        }
                     }
                 }
-
-
 
                 requestRender();
                 Log.i(TAG, "HI");

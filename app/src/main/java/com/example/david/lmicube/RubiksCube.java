@@ -301,9 +301,27 @@ public class RubiksCube {
                 cube[4][5] = temp[2];
                 break;
             case 17: turn = "S";
+                temp[0] = cube[1][3];
+                temp[1] = cube[1][4];
+                temp[2] = cube[1][5];
+                cube[1][3] = cube[4][7];
+                cube[1][4] = cube[4][4];
+                cube[1][5] = cube[4][1];
+                cube[4][7] = cube[2][5];
+                cube[4][4] = cube[2][4];
+                cube[4][1] = cube[2][3];
+                cube[2][5] = cube[5][1];
+                cube[2][4] = cube[5][4];
+                cube[2][3] = cube[5][7];
+                cube[5][1] = temp[0];
+                cube[5][4] = temp[1];
+                cube[5][7] = temp[2];
 
                 break;
             case 18: turn = "S'";
+                Turn(17);
+                Turn(17);
+                Turn(17);
                 break;
             case 19: turn = "X";
                 break;
