@@ -29,11 +29,8 @@ public class RubiksCube {
         for(int i = 0; i < 6; i++) {
             for(int j = 0; j < 9; j ++) {
                 returnString+= ""+cube[i][j];
-
             }
-
         }
-
         return returnString;
     }
 
@@ -257,9 +254,71 @@ public class RubiksCube {
                 Turn(11);
                 Turn(11);
                 break;
+            // based upon ruwix.com/the-rubiks-cube/notation/ notation
+            case 13: turn = "M";
+                temp[0] = cube[0][1];
+                temp[1] = cube[0][4];
+                temp[2] = cube[0][7];
+                cube[0][1] = cube[2][1];
+                cube[0][4] = cube[2][4];
+                cube[0][7] = cube[2][7];
+                cube[2][1] = cube[3][1];
+                cube[2][4] = cube[3][4];
+                cube[2][7] = cube[3][7];
+                cube[3][1] = cube[1][1];
+                cube[3][4] = cube[1][4];
+                cube[3][7] = cube[1][7];
+                cube[1][1] = temp[0];
+                cube[1][4] = temp[1];
+                cube[1][7] = temp[2];
+
+                break;
+            case 14: turn = "M'";
+                Turn(13);
+                Turn(13);
+                Turn(13);
+                break;
+            case 15: turn = "E";
+                Turn(16);
+                Turn(16);
+                Turn(16);
+                break;
+            case 16: turn = "E'";
+                temp[0] = cube[0][3];
+                temp[1] = cube[0][4];
+                temp[2] = cube[0][5];
+                cube[0][3] = cube[5][3];
+                cube[0][4] = cube[5][4];
+                cube[0][5] = cube[5][5];
+                cube[5][3] = cube[3][5];
+                cube[5][4] = cube[3][4];
+                cube[5][5] = cube[3][3];
+                cube[3][5] = cube[4][3];
+                cube[3][4] = cube[4][4];
+                cube[3][3] = cube[4][5];
+                cube[4][3] = temp[0];
+                cube[4][4] = temp[1];
+                cube[4][5] = temp[2];
+                break;
+            case 17: turn = "S";
+
+                break;
+            case 18: turn = "S'";
+                break;
+            case 19: turn = "X";
+                break;
+            case 20: turn = "X'";
+                break;
+            case 21: turn = "Y";
+                break;
+            case 22: turn = "Y'";
+                break;
+            case 23: turn = "Z";
+                break;
+            case 24: turn = "Z'";
+                break;
             default: turn = "Invalid";
                 break;
-
 
         }
 

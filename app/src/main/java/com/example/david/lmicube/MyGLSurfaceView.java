@@ -76,6 +76,10 @@ class MyGLSurfaceView extends GLSurfaceView {
                     else if (mPreviousX > .2787*screenWidth && mPreviousX < .3758*screenWidth) {
                         mCube.Turn(4);
                     }
+                    // If on Left Face Middle Column -> M'
+                    else if (mPreviousX > .3758*screenWidth && mPreviousX < .4239*screenWidth) {
+                        mCube.Turn(13);
+                    }
                     // If on Right Face Left Column -> U'
                     else if(mPreviousX > .5525*screenWidth && mPreviousX < .6275*screenWidth) {
                         mCube.Turn(6);
@@ -83,6 +87,10 @@ class MyGLSurfaceView extends GLSurfaceView {
                     // If on Right Face Right Column -> D
                     else if(mPreviousX > .6688*screenWidth && mPreviousX < .7688*screenWidth) {
                         mCube.Turn(9);
+                    }
+                    // If on Right Face Middle Column -> E
+                    else if(mPreviousX > .6275*screenWidth && mPreviousX < .6688*screenWidth) {
+                        mCube.Turn(15);
                     }
                 }
                 // If swipe is vertical downwards
@@ -95,6 +103,10 @@ class MyGLSurfaceView extends GLSurfaceView {
                     else if (mPreviousX > .2787*screenWidth && mPreviousX < .3758*screenWidth) {
                         mCube.Turn(3);
                     }
+                    // If on Left Face Middle Column -> M
+                    else if (mPreviousX > .3758*screenWidth && mPreviousX < .4239*screenWidth) {
+                        mCube.Turn(14);
+                    }
                     // If on Right Face Left Column -> U
                     else if(mPreviousX > .5525*screenWidth && mPreviousX < .6275*screenWidth) {
                         mCube.Turn(5);
@@ -102,6 +114,10 @@ class MyGLSurfaceView extends GLSurfaceView {
                     // If on Right Face Right Column -> D'
                     else if(mPreviousX > .6688*screenWidth && mPreviousX < .7688*screenWidth) {
                         mCube.Turn(10);
+                    }
+                    // If on Right Face Middle Column -> E'
+                    else if(mPreviousX > .6275*screenWidth && mPreviousX < .6688*screenWidth) {
+                        mCube.Turn(16);
                     }
                 }
 
