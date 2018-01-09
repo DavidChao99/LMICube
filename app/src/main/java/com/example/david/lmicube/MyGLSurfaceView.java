@@ -66,127 +66,139 @@ class MyGLSurfaceView extends GLSurfaceView {
                 String upmsg = String.format("Up X is %f and Up Y is %f", e.getX(), e.getY());
                 Log.i(TAG, upmsg);
 
-                // If swipe is vertical upwards
-                if (abs(dy)/abs(dx) > 3 && dy < 0) {
-                    // If on Left Face Right Column -> R
-                    if (mPreviousX > .4239*screenWidth && mPreviousX < .5475*screenWidth ) {
-                        mCube.Turn(1);
-                    }
-                    // If on Left Face Left Column -> L'
-                    else if (mPreviousX > .2787*screenWidth && mPreviousX < .3758*screenWidth) {
-                        mCube.Turn(4);
-                    }
-                    // If on Left Face Middle Column -> M'
-                    else if (mPreviousX > .3758*screenWidth && mPreviousX < .4239*screenWidth) {
-                        mCube.Turn(13);
-                    }
-                    // If on Right Face Left Column -> U'
-                    else if(mPreviousX > .5525*screenWidth && mPreviousX < .6275*screenWidth) {
-                        mCube.Turn(6);
-                    }
-                    // If on Right Face Right Column -> D
-                    else if(mPreviousX > .6688*screenWidth && mPreviousX < .7688*screenWidth) {
-                        mCube.Turn(9);
-                    }
-                    // If on Right Face Middle Column -> E
-                    else if(mPreviousX > .6275*screenWidth && mPreviousX < .6688*screenWidth) {
-                        mCube.Turn(15);
-                    }
-                }
-                // If swipe is vertical downwards
-                else if (abs(dy)/abs(dx) > 3 && dy > 0) {
-                    // If on Left Face Right Column -> R'
-                    if (mPreviousX > .4239*screenWidth && mPreviousX < .5475*screenWidth ) {
-                        mCube.Turn(2);
-                    }
-                    // If on Left Face Left Column -> L
-                    else if (mPreviousX > .2787*screenWidth && mPreviousX < .3758*screenWidth) {
-                        mCube.Turn(3);
-                    }
-                    // If on Left Face Middle Column -> M
-                    else if (mPreviousX > .3758*screenWidth && mPreviousX < .4239*screenWidth) {
-                        mCube.Turn(14);
-                    }
-                    // If on Right Face Left Column -> U
-                    else if(mPreviousX > .5525*screenWidth && mPreviousX < .6275*screenWidth) {
-                        mCube.Turn(5);
-                    }
-                    // If on Right Face Right Column -> D'
-                    else if(mPreviousX > .6688*screenWidth && mPreviousX < .7688*screenWidth) {
-                        mCube.Turn(10);
-                    }
-                    // If on Right Face Middle Column -> E'
-                    else if(mPreviousX > .6275*screenWidth && mPreviousX < .6688*screenWidth) {
-                        mCube.Turn(16);
-                    }
-                }
+                // If first point of contact originates on the cube
+                if( .2787 * screenWidth < mPreviousX && mPreviousX < .7688 * screenWidth  && .2096 * screenHeight < mPreviousY && mPreviousY < .9366 * screenHeight) {
 
-                // If swipe is horizontal rightward
-                if (abs(dy)/abs(dx) < 2 && dx > 0) {
-                    //If on Left Face
-                    if (mPreviousX < .5*screenWidth) {
-                        // If on Top Row do B'
-                        if (mPreviousY < .3770*screenHeight && mPreviousY > .2092*screenHeight) {
-                            mCube.Turn(12);
+                    // If it is swipe
+                    if( dx > .10 * screenWidth || dy > .05 * screenHeight ) {
+                        // If swipe is vertical upwards
+                        if (abs(dy) / abs(dx) > 3 && dy < 0) {
+                            // If on Left Face Right Column -> R
+                            if (mPreviousX > .4239 * screenWidth && mPreviousX < .5475 * screenWidth) {
+                                mCube.Turn(1);
+                            }
+                            // If on Left Face Left Column -> L'
+                            else if (mPreviousX > .2787 * screenWidth && mPreviousX < .3758 * screenWidth) {
+                                mCube.Turn(4);
+                            }
+                            // If on Left Face Middle Column -> M'
+                            else if (mPreviousX > .3758 * screenWidth && mPreviousX < .4239 * screenWidth) {
+                                mCube.Turn(13);
+                            }
+                            // If on Right Face Left Column -> U'
+                            else if (mPreviousX > .5525 * screenWidth && mPreviousX < .6275 * screenWidth) {
+                                mCube.Turn(6);
+                            }
+                            // If on Right Face Right Column -> D
+                            else if (mPreviousX > .6688 * screenWidth && mPreviousX < .7688 * screenWidth) {
+                                mCube.Turn(9);
+                            }
+                            // If on Right Face Middle Column -> E
+                            else if (mPreviousX > .6275 * screenWidth && mPreviousX < .6688 * screenWidth) {
+                                mCube.Turn(15);
+                            }
                         }
-                        // If on Bottom Row do F
-                        else if (mPreviousY < .7443*screenHeight && mPreviousY > .5553*screenHeight) {
-                            mCube.Turn(7);
+                        // If swipe is vertical downwards
+                        else if (abs(dy) / abs(dx) > 3 && dy > 0) {
+                            // If on Left Face Right Column -> R'
+                            if (mPreviousX > .4239 * screenWidth && mPreviousX < .5475 * screenWidth) {
+                                mCube.Turn(2);
+                            }
+                            // If on Left Face Left Column -> L
+                            else if (mPreviousX > .2787 * screenWidth && mPreviousX < .3758 * screenWidth) {
+                                mCube.Turn(3);
+                            }
+                            // If on Left Face Middle Column -> M
+                            else if (mPreviousX > .3758 * screenWidth && mPreviousX < .4239 * screenWidth) {
+                                mCube.Turn(14);
+                            }
+                            // If on Right Face Left Column -> U
+                            else if (mPreviousX > .5525 * screenWidth && mPreviousX < .6275 * screenWidth) {
+                                mCube.Turn(5);
+                            }
+                            // If on Right Face Right Column -> D'
+                            else if (mPreviousX > .6688 * screenWidth && mPreviousX < .7688 * screenWidth) {
+                                mCube.Turn(10);
+                            }
+                            // If on Right Face Middle Column -> E'
+                            else if (mPreviousX > .6275 * screenWidth && mPreviousX < .6688 * screenWidth) {
+                                mCube.Turn(16);
+                            }
                         }
-                        // If on Middle Row do S
-                        else if (mPreviousY < .5553*screenHeight && mPreviousY > .3770*screenHeight) {
-                            mCube.Turn(17);
+
+                        // If swipe is horizontal rightward
+                        if (abs(dy) / abs(dx) < 2 && dx > 0) {
+                            //If on Left Face
+                            if (mPreviousX < .3758 * screenWidth) {
+                                // If on Top Row do B'
+                                if (mPreviousY < .3770 * screenHeight && mPreviousY > .2092 * screenHeight) {
+                                    mCube.Turn(12);
+                                }
+                                // If on Bottom Row do F
+                                else if (mPreviousY < .7443 * screenHeight && mPreviousY > .5553 * screenHeight) {
+                                    mCube.Turn(7);
+                                }
+                                // If on Middle Row do S
+                                else if (mPreviousY < .5553 * screenHeight && mPreviousY > .3770 * screenHeight) {
+                                    mCube.Turn(17);
+                                }
+                            }
+                            //If on Right Face
+                            else if (mPreviousX > .3758 * screenWidth) {
+                                // If on Top Row do B'
+                                if (mPreviousY < .5179 * screenHeight && mPreviousY > .3253 * screenHeight) {
+                                    mCube.Turn(12);
+                                }
+                                // If on Bottom Row do F
+                                else if (mPreviousY < .9366 * screenHeight && mPreviousY > .7839 * screenHeight) {
+                                    mCube.Turn(7);
+                                }
+                                // If on Middle Row do S
+                                else if (mPreviousY < .7839 * screenHeight && mPreviousY > .5179 * screenHeight) {
+                                    mCube.Turn(17);
+                                }
+                            }
                         }
-                    }
-                    //If on Right Face
-                    else if (mPreviousX > .5*screenWidth) {
-                        // If on Top Row do B'
-                        if (mPreviousY < .5179*screenHeight && mPreviousY > .3253*screenHeight) {
-                            mCube.Turn(12);
-                        }
-                        // If on Bottom Row do F
-                        else if (mPreviousY < .9366*screenHeight && mPreviousY > .7839*screenHeight) {
-                            mCube.Turn(7);
-                        }
-                        // If on Middle Row do S
-                        else if (mPreviousY < .7839*screenHeight && mPreviousY > .5179*screenHeight) {
-                            mCube.Turn(17);
+
+                        // If swipe is horizontal leftward
+                        else if (abs(dy) / abs(dx) < 2 && dx < 0) {
+                            //If on Left Face
+                            if (mPreviousX < .6688 * screenWidth) {
+                                // If on Top Row do B
+                                if (mPreviousY < .5179 * screenHeight && mPreviousY > .3253 * screenHeight) {
+                                    mCube.Turn(11);
+                                }
+                                // If on Bottom Row do F'
+                                else if (mPreviousY < .9366 * screenHeight && mPreviousY > .7839 * screenHeight) {
+                                    mCube.Turn(8);
+                                }
+                                // If on Middle Row do S'
+                                else if (mPreviousY < .7839 * screenHeight && mPreviousY > .5179 * screenHeight) {
+                                    mCube.Turn(18);
+                                }
+                            }
+                            //If on Right Face
+                            else if (mPreviousX > .6688 * screenWidth) {
+                                // If on Top Row do B
+                                if (mPreviousY < .3770 * screenHeight && mPreviousY > .2092 * screenHeight) {
+                                    mCube.Turn(11);
+                                }
+                                // If on Bottom Row do F'
+                                else if (mPreviousY < .7443 * screenHeight && mPreviousY > .5553 * screenHeight) {
+                                    mCube.Turn(8);
+                                }
+                                // If on Middle Row do S'
+                                else if (mPreviousY < .5553 * screenHeight && mPreviousY > .3770 * screenHeight) {
+                                    mCube.Turn(18);
+                                }
+                            }
                         }
                     }
                 }
+                // Otherwise consider Cube Rotations
+                else {
 
-                // If swipe is horizontal leftward
-                else if (abs(dy)/abs(dx) < 2 && dx < 0) {
-                    //If on Left Face
-                    if (mPreviousX < .5*screenWidth) {
-                        // If on Top Row do B
-                        if (mPreviousY < .5179*screenHeight && mPreviousY > .3253*screenHeight) {
-                            mCube.Turn(11);
-                        }
-                        // If on Bottom Row do F'
-                        else if (mPreviousY < .9366*screenHeight && mPreviousY > .7839*screenHeight) {
-                            mCube.Turn(8);
-                        }
-                        // If on Middle Row do S'
-                        else if (mPreviousY < .7839*screenHeight && mPreviousY > .5179*screenHeight) {
-                            mCube.Turn(18);
-                        }
-                    }
-                    //If on Right Face
-                    else if (mPreviousX > .5*screenWidth) {
-                        // If on Top Row do B
-                        if (mPreviousY < .3770*screenHeight && mPreviousY > .2092*screenHeight) {
-                            mCube.Turn(11);
-                        }
-                        // If on Bottom Row do F'
-                        else if (mPreviousY < .7443*screenHeight && mPreviousY > .5553*screenHeight) {
-                            mCube.Turn(8);
-                        }
-                        // If on Middle Row do S'
-                        else if (mPreviousY < .5553*screenHeight && mPreviousY > .3770*screenHeight) {
-                            mCube.Turn(18);
-                        }
-                    }
+
                 }
 
                 requestRender();

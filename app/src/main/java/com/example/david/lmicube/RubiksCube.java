@@ -324,16 +324,40 @@ public class RubiksCube {
                 Turn(17);
                 break;
             case 19: turn = "X";
+                // R L' M'
+                Turn(1);
+                Turn(4);
+                Turn(14);
                 break;
             case 20: turn = "X'";
+                // R' L M
+                Turn(2);
+                Turn(3);
+                Turn(13);
                 break;
             case 21: turn = "Y";
+                // U D' E'
+                Turn(5);
+                Turn(10);
+                Turn(16);
                 break;
             case 22: turn = "Y'";
+                // U' D E
+                Turn(6);
+                Turn(9);
+                Turn(15);
                 break;
             case 23: turn = "Z";
+                // F B' S
+                Turn(7);
+                Turn(12);
+                Turn(17);
                 break;
             case 24: turn = "Z'";
+                // F' B S'x
+                Turn(8);
+                Turn(11);
+                Turn(18);
                 break;
             default: turn = "Invalid";
                 break;
