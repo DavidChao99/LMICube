@@ -5,6 +5,7 @@ package com.example.david.lmicube;
  */
 
 import android.app.Activity;
+import android.content.pm.ActivityInfo;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 
@@ -15,6 +16,8 @@ public class OpenGLES20Activity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
         // Create a GLSurfaceView instance and set it
         // as the ContentView for this Activity.

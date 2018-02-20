@@ -4,8 +4,10 @@ package com.example.david.lmicube;
  * Created by David on 8/16/2017.
  */
 
+import java.util.Random;
+
 public class RubiksCube {
-    static int[][] cube;
+    private static int[][] cube;
 
     // WHITE - 0
     // GREEN - 1
@@ -16,11 +18,7 @@ public class RubiksCube {
 
     public RubiksCube() {
         cube = new int[6][9];
-        for(int i = 0; i < 6; i ++) {
-            for(int j = 0; j < 9; j++) {
-                cube[i][j] = i;
-            }
-        }
+        Reset();
     }
 
     public String getCube() {
@@ -39,6 +37,8 @@ public class RubiksCube {
     }
 
 
+    // These methods define Cube Logic
+    // They return the Cube as a string but if this is unneeded, can remove and make void
     public String Turn(int direction) {
         String turn;
         int[] temp = new int[3];
@@ -367,7 +367,25 @@ public class RubiksCube {
         return getCube();
     }
 
+    public String Reset() {
+        for(int i = 0; i < 6; i ++) {
+            for(int j = 0; j < 9; j++) {
+                cube[i][j] = i;
+            }
+        }
+        return getCube();
+    }
 
+    public String Shuffle() {
+        Random rand = new Random();
 
+        int numTurns = rand.nextInt(10) + 25;
+        for(int i = 0; i <= numTurns; i++) {
+            int turnNum = rand.nextInt(18) + 1;
+            Turn(turnNum);
+        }
+
+        return getCube();
+    }
 
 }

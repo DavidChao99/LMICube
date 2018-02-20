@@ -68,9 +68,12 @@ class MyGLSurfaceView extends GLSurfaceView {
 
                 // If first point of contact originates on the cube
                 if( .2787 * screenWidth < mPreviousX && mPreviousX < .7688 * screenWidth  && .2096 * screenHeight < mPreviousY && mPreviousY < .9366 * screenHeight) {
-
+                    String xkcd = String.format("We are swiping my bois with dx = %f and dy = %f", dx, dy);
+                    Log.i(TAG, xkcd);
                     // If it is swipe
-                    if( dx > .10 * screenWidth || dy > .05 * screenHeight ) {
+                    if( abs(dx) > .10 * screenWidth || abs(dy) > .05 * screenHeight ) {
+                        String hmm = String.format("We are swiping my bois with dx = %f and dy = %f", dx, dy);
+                        Log.i(TAG, hmm);
                         // If swipe is vertical upwards
                         if (abs(dy) / abs(dx) > 3 && dy < 0) {
                             // If on Left Face Right Column -> R
@@ -162,7 +165,7 @@ class MyGLSurfaceView extends GLSurfaceView {
 
                         // If swipe is horizontal leftward
                         else if (abs(dy) / abs(dx) < 2 && dx < 0) {
-                            //If on Left Face
+                            // If on Left Face
                             if (mPreviousX < .6688 * screenWidth) {
                                 // If on Top Row do B
                                 if (mPreviousY < .5179 * screenHeight && mPreviousY > .3253 * screenHeight) {
@@ -177,7 +180,7 @@ class MyGLSurfaceView extends GLSurfaceView {
                                     mCube.Turn(18);
                                 }
                             }
-                            //If on Right Face
+                            // If on Right Face
                             else if (mPreviousX > .6688 * screenWidth) {
                                 // If on Top Row do B
                                 if (mPreviousY < .3770 * screenHeight && mPreviousY > .2092 * screenHeight) {
@@ -195,10 +198,48 @@ class MyGLSurfaceView extends GLSurfaceView {
                         }
                     }
                 }
+                // Is it a button?
+                else if( mPreviousX < 0.15*screenWidth) {
+                    // Back Button
+                    if(.02 * screenHeight < mPreviousY  && mPreviousY < .25 * screenHeight) {
+
+                    }
+                    // Undo Button
+                    else if( .26 * screenHeight < mPreviousY && mPreviousY < .49 * screenHeight ) {
+
+                    }
+                    // Reset Button
+                    else if( .50 * screenHeight < mPreviousY && mPreviousY < .73 * screenHeight) {
+                        mCube.Reset();
+                    }
+                    // Shuffle Button
+                    else if( .74 * screenHeight < mPreviousY && mPreviousY < .95 * screenHeight) {
+                        mCube.Shuffle();
+                    }
+                }
                 // Otherwise consider Cube Rotations
                 else {
 
+                    // If it is swipe
+                    if( dx > .10 * screenWidth || dy > .05 * screenHeight ) {
 
+                        // If swipe is upwards
+                        if (abs(dy) / abs(dx) > 3 && dy < 0) {
+
+                        }
+                        // If swipe is downwards
+                        if (abs(dy) / abs(dx) > 3 && dy > 0) {
+
+                        }
+                        // If swipe is rightwards
+                        else if (abs(dy) / abs(dx) < 2 && dx > 0) {
+
+                        }
+                        // If swipe is leftwards
+                        else if (abs(dy) / abs(dx) < 2 && dx < 0) {
+
+                        }
+                    }
                 }
 
                 requestRender();

@@ -40,11 +40,15 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
     private Square   mSquareLeftBL;
     private Square   mSquareLeftBC;
     private Square   mSquareLeftBR;
+    private Square   mSquareBackBut;
+    private Square   mSquareUndoBut;
+    private Square   mSquareResetBut;
+    private Square   mSquareShuffleBut;
 
     private RubiksCube mCube;
 
     private CubeTemplate mTemplate;
-
+    private ButtonTemplate mBT;
     private ColorTemplate mCT;
 
     public volatile float mAngle;
@@ -66,7 +70,8 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
 
         // Initialize Cube Template
         mTemplate = new CubeTemplate();
-
+        // Initialize Button Template
+        mBT = new ButtonTemplate();
         // Initialize Color Template
         mCT = new ColorTemplate();
 
@@ -98,6 +103,11 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         mSquareLeftBL = new Square(mTemplate.getLeftBLVertex());
         mSquareLeftBC = new Square(mTemplate.getLeftBCVertex());
         mSquareLeftBR = new Square(mTemplate.getLeftBRVertex());
+        mSquareBackBut = new Square(mBT.getBackButVertex());
+        mSquareUndoBut = new Square(mBT.getUndoButVertex());
+        mSquareResetBut = new Square(mBT.getResetButVertex());
+        mSquareShuffleBut = new Square(mBT.getShuffleButVertex());
+
     }
 
     private float[] mRotationMatrix = new float[16];
@@ -150,6 +160,10 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         mSquareLeftBL.draw(scratch, mCT.getColor(mCube.getCube(1,6)));
         mSquareLeftBC.draw(scratch, mCT.getColor(mCube.getCube(1,7)));
         mSquareLeftBR.draw(scratch, mCT.getColor(mCube.getCube(1,8)));
+        mSquareBackBut.draw(scratch, mCT.getBlue());
+        mSquareUndoBut.draw(scratch, mCT.getBlue());
+        mSquareResetBut.draw(scratch, mCT.getBlue());
+        mSquareShuffleBut.draw(scratch, mCT.getBlue());
     }
 
 
