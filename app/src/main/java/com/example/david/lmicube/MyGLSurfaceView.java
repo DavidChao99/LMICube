@@ -172,11 +172,11 @@ class MyGLSurfaceView extends GLSurfaceView {
                                     mCube.Turn(11);
                                 }
                                 // If on Bottom Row do F'
-                                else if (mPreviousY < .9366 * screenHeight && mPreviousY > .7839 * screenHeight) {
+                                else if (mPreviousY < .9366 * screenHeight && mPreviousY > .7539 * screenHeight) {
                                     mCube.Turn(8);
                                 }
                                 // If on Middle Row do S'
-                                else if (mPreviousY < .7839 * screenHeight && mPreviousY > .5179 * screenHeight) {
+                                else if (mPreviousY < .7539 * screenHeight && mPreviousY > .5179 * screenHeight) {
                                     mCube.Turn(18);
                                 }
                             }
@@ -187,11 +187,11 @@ class MyGLSurfaceView extends GLSurfaceView {
                                     mCube.Turn(11);
                                 }
                                 // If on Bottom Row do F'
-                                else if (mPreviousY < .7443 * screenHeight && mPreviousY > .5553 * screenHeight) {
+                                else if (mPreviousY < .7443 * screenHeight && mPreviousY > .5253 * screenHeight) {
                                     mCube.Turn(8);
                                 }
                                 // If on Middle Row do S'
-                                else if (mPreviousY < .5553 * screenHeight && mPreviousY > .3770 * screenHeight) {
+                                else if (mPreviousY < .5253 * screenHeight && mPreviousY > .3770 * screenHeight) {
                                     mCube.Turn(18);
                                 }
                             }

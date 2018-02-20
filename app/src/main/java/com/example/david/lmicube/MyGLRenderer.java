@@ -44,6 +44,9 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
     private Square   mSquareUndoBut;
     private Square   mSquareResetBut;
     private Square   mSquareShuffleBut;
+    private Square   mSquareOutlineF;
+    private Square   mSquareOutlineU;
+    private Square   mSquareOutlineR;
 
     private RubiksCube mCube;
 
@@ -107,6 +110,9 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         mSquareUndoBut = new Square(mBT.getUndoButVertex());
         mSquareResetBut = new Square(mBT.getResetButVertex());
         mSquareShuffleBut = new Square(mBT.getShuffleButVertex());
+        mSquareOutlineF = new Square(mBT.getOutlineFVertex());
+        mSquareOutlineU = new Square(mBT.getOutlineUVertex());
+        mSquareOutlineR = new Square(mBT.getOutlineRVertex());
 
     }
 
@@ -164,6 +170,9 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         mSquareUndoBut.draw(scratch, mCT.getBlue());
         mSquareResetBut.draw(scratch, mCT.getBlue());
         mSquareShuffleBut.draw(scratch, mCT.getBlue());
+        mSquareOutlineF.draw(scratch, mCT.getColor(mCube.getCube(1,4)));
+        mSquareOutlineU.draw(scratch, mCT.getColor(mCube.getCube(3,4)));
+        mSquareOutlineR.draw(scratch, mCT.getColor(mCube.getCube(5,4)));
     }
 
 
